@@ -41,8 +41,15 @@
       .mobile-nav-button.active{color:var(--mint-dark)}.mobile-nav-icon{width:40px;height:25px;display:grid;place-items:center;border-radius:99px;transition:background .15s}.mobile-nav-button.active .mobile-nav-icon{background:var(--mint-pale)}.mobile-nav-icon svg{width:18px;height:18px}.mobile-nav-label{display:flex;align-items:center;gap:4px}.mobile-nav-count{display:inline-grid;place-items:center;min-width:16px;height:16px;padding:0 4px;border-radius:99px;background:#edf2f3;color:inherit;font-size:9px}
       .main{padding-bottom:96px}.road-meter-list{padding:6px 6px 9px}.meter-card{border:1px solid #edf1f2;border-radius:13px;background:#fff;margin:7px 0;padding:8px;box-shadow:0 3px 10px rgba(16,43,59,.04)}.favorite-empty-mascot{display:block;width:76px;height:76px;object-fit:contain;margin:0 auto 8px}
     }
-      @media(max-width:700px){.destination-bar{align-items:flex-start;margin-bottom:10px}.destination-controls{width:100%;justify-content:flex-start}.destination-controls select{height:30px}.destination-controls button{height:30px}.list-head.destination-active{height:auto;flex-basis:auto;align-items:flex-start}.destination-controls{flex-wrap:wrap}}
+    @media(max-width:700px){.destination-bar{align-items:flex-start;margin-bottom:10px}.destination-controls{width:100%;justify-content:flex-start}.destination-controls select{height:30px}.destination-controls button{height:30px}.list-head.destination-active{height:auto;flex-basis:auto;align-items:flex-start}.destination-controls{flex-wrap:wrap}}
     @media(min-width:701px) and (max-width:900px){.workspace{grid-template-columns:minmax(0,1fr)}.map-panel{min-height:520px}.map-wrap,.map-canvas{height:462px;min-height:462px}.list-panel{min-height:520px}.parking-list{max-height:470px}}
+  </style>
+  <style>
+    .topbar-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}.faq-open-button{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 11px;border:1px solid rgba(255,255,255,.32);border-radius:11px;background:rgba(255,255,255,.08);color:#fff;font-size:11px;font-weight:700;white-space:nowrap}.faq-open-button:hover,.faq-open-button:focus-visible{background:rgba(255,255,255,.17);outline:2px solid rgba(48,200,149,.7);outline-offset:2px}.faq-open-button svg{width:16px;height:16px;color:#80e2bf}
+    .faq-dialog:not([open]){display:none}.faq-dialog[open]{display:flex;flex-direction:column}.faq-dialog{width:min(900px,calc(100vw - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);margin:auto;padding:0;border:1px solid rgba(16,43,59,.12);border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 28px 90px rgba(7,27,37,.28);overflow:hidden}.faq-dialog::backdrop{background:rgba(9,29,39,.64);backdrop-filter:blur(3px)}.faq-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:0 0 auto;padding:17px 22px;background:var(--navy);color:#fff}.faq-eyebrow{margin:0 0 4px;color:#93d7c1;font-size:10px;font-weight:700;letter-spacing:.12em}.faq-dialog-head h2{margin:0;font-size:21px;letter-spacing:-.02em}.faq-close-button{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.25);border-radius:12px;background:rgba(255,255,255,.08);color:#fff}.faq-close-button:hover,.faq-close-button:focus-visible{background:rgba(255,255,255,.18);outline:2px solid rgba(48,200,149,.7);outline-offset:2px}.faq-close-button svg{width:18px;height:18px}
+    .faq-dialog-body{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:19px 23px 25px;scroll-behavior:smooth}.faq-lead{margin:0 0 14px;color:#526976;font-size:12px;line-height:1.75}.faq-index{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px;padding:0 0 15px;border-bottom:1px solid var(--line)}.faq-index a{display:inline-flex;align-items:center;min-height:32px;padding:0 11px;border:1px solid #dce9e6;border-radius:99px;background:#f4faf7;color:#32695d;text-decoration:none;font-size:10px;font-weight:700}.faq-index a:hover,.faq-index a:focus-visible{border-color:#78caae;background:#eaf8f1;outline:none}.faq-topic{scroll-margin-top:12px;margin:0 0 18px}.faq-topic h3{margin:0 0 7px;color:#087e60;font-size:13px;font-weight:780}.faq-item{border-bottom:1px solid #e9eff0}.faq-item:first-of-type{border-top:1px solid #e9eff0}.faq-item summary{position:relative;list-style:none;padding:12px 30px 12px 2px;color:#243f4c;font-size:12px;font-weight:720;line-height:1.55;cursor:pointer}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:'+';position:absolute;right:5px;top:50%;transform:translateY(-50%);color:#51877a;font-size:19px;font-weight:500}.faq-item[open] summary::after{content:'−'}.faq-item summary:focus-visible{outline:2px solid #63c7a3;outline-offset:2px;border-radius:5px}.faq-item p{margin:-2px 25px 13px 2px;color:#5b707b;font-size:11px;line-height:1.8}.faq-item strong{color:#244f46}.faq-source-note{margin:1px 0 0;padding:11px 13px;border-radius:11px;background:#f2f7f8;color:#637782;font-size:10px;line-height:1.65}
+    @media(max-width:700px){.topbar-actions{gap:6px}.faq-open-button{height:33px;padding:0 9px;gap:4px;border-radius:10px;font-size:10px}.faq-open-button svg{width:15px;height:15px}.faq-dialog{width:calc(100vw - 16px);max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);border-radius:17px}.faq-dialog-head{padding:13px 15px}.faq-dialog-head h2{font-size:19px}.faq-close-button{width:36px;height:36px;flex-basis:36px}.faq-dialog-body{padding:14px 15px 19px}.faq-lead{font-size:11px}.faq-index{gap:6px;padding-bottom:12px;margin-bottom:16px}.faq-index a{min-height:31px;padding:0 9px;font-size:9px}.faq-topic{margin-bottom:16px}.faq-topic h3{font-size:12px}.faq-item summary{padding:11px 27px 11px 2px;font-size:11px}.faq-item p{font-size:10px;line-height:1.75}}
+    @media(max-width:380px){.preview-tag{display:none}.faq-dialog{width:calc(100vw - 12px);max-height:calc(100vh - 12px);max-height:calc(100dvh - 12px);border-radius:15px}.faq-dialog-body{padding-right:12px;padding-left:12px}.faq-index{gap:5px}.faq-index a{padding:0 8px}}
   </style>
 </head>
 <body>
@@ -52,8 +59,33 @@
       <span class="brand-mark" aria-hidden="true"><img src="assets/meter-mascot-portrait.jpg" alt=""></span>
       <span class="brand-title">香港咪錶泊位<span class="brand-sub">ON-STREET METER PARKING</span></span>
     </div>
-    <span class="preview-tag">公開測試版</span>
+    <div class="topbar-actions"><button class="faq-open-button" id="faq-open-button" type="button" aria-haspopup="dialog" aria-controls="faq-dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9a2.5 2.5 0 1 1 4.1 1.9c-1 .8-1.7 1.2-1.7 2.6M12 17h.01"></path></svg><span>常見問題</span></button><span class="preview-tag">公開測試版</span></div>
   </header>
+  <dialog class="faq-dialog" id="faq-dialog" aria-labelledby="faq-title">
+    <div class="faq-dialog-head"><div><p class="faq-eyebrow">香港咪錶泊位</p><h2 id="faq-title">常見問題</h2></div><button class="faq-close-button" id="faq-close-button" type="button" aria-label="關閉常見問題"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button></div>
+    <div class="faq-dialog-body" id="faq-dialog-body">
+      <p class="faq-lead">以下說明本 App 現有資料及操作方式；咪錶狀態只反映運輸署最近回報，唔代表預留或保證。</p>
+      <nav class="faq-index" aria-label="常見問題分類"><a href="#faq-status">咪錶資料</a><a href="#faq-cache">快取與網絡</a><a href="#faq-location">定位與選點</a><a href="#faq-favorites">收藏與外部地圖</a></nav>
+      <section class="faq-topic" id="faq-status" aria-labelledby="faq-status-title"><h3 id="faq-status-title">咪錶資料與狀態</h3>
+        <details class="faq-item"><summary>「有空位」代表一定有位嗎？</summary><p>唔係。空位只代表運輸署最新回報狀態為 <strong>V（未佔用）</strong>；唔係預留或保證，感應狀態可能有延遲，抵達前亦可能改變。<strong>O</strong> 代表已佔用；未有配對到狀態的咪錶會標示「未有狀態」，唔會當作空位。</p></details>
+        <details class="faq-item"><summary>資料來自邊度？幾耐更新一次？</summary><p>咪錶位置及佔用狀態來自運輸署公開資料。App 開啟時會嘗試讀取最新資料，之後約每 60 秒再更新一次；頁面會顯示最近成功讀取時間。是否即時，請以畫面上的資料狀態及時間為準。</p></details>
+      </section>
+      <section class="faq-topic" id="faq-cache" aria-labelledby="faq-cache-title"><h3 id="faq-cache-title">快取與網絡</h3>
+        <details class="faq-item"><summary>見到「過期快取／非即時」應該點理解？</summary><p>代表今次未能成功更新，而 App 正顯示本瀏覽器上一次完整成功讀取的咪錶資料；頁面會標明最近成功讀取時間。呢批快取資料存在目前瀏覽器的裝置儲存空間，唔係最新即時狀態。</p></details>
+        <details class="faq-item"><summary>冇網絡時，App 仲用唔用到？</summary><p>如果之前成功載入過資料，部分咪錶資料可能仍可由本機快取顯示；但 Leaflet 地圖程式庫及 OpenStreetMap 地圖圖磚仍需網絡，離線時地圖底圖可能無法顯示。快取唔代表整個 App 或地圖可以離線使用。</p></details>
+        <details class="faq-item"><summary>搜尋文字會傳出去嗎？</summary><p>街道、地區或咪錶編號搜尋只會篩選目前已載入的清單，搜尋文字唔會傳送到地理編碼服務。</p></details>
+      </section>
+      <section class="faq-topic" id="faq-location" aria-labelledby="faq-location-title"><h3 id="faq-location-title">定位與目的地選點</h3>
+        <details class="faq-item"><summary>一定要開定位權限先用到嗎？</summary><p>唔需要。允許瀏覽器定位後，App 會喺裝置上用目前位置聚焦地圖及排序附近咪錶；GPS 座標唔會儲存，亦唔會送去地理編碼服務。拒絕或無法定位，仍可手動揀地區及搜尋。</p></details>
+        <details class="faq-item"><summary>點樣搵目的地附近咪錶？</summary><p>撳「地圖選點」，再喺地圖點一下目的地；可揀 <strong>300 米、500 米、1 公里或 2 公里</strong>搜尋範圍。App 會喺瀏覽器本機計算附近咪錶，只列運輸署最新回報為 V 的空位，並按距離排列。此功能唔提供地址搜尋／地址地理編碼；所選目的地座標唔會送到外部服務。顯示底圖時，OpenStreetMap 仍會收到畫面所需圖磚區域請求，但唔會因此收到你點選的精確座標。</p></details>
+      </section>
+      <section class="faq-topic" id="faq-favorites" aria-labelledby="faq-favorites-title"><h3 id="faq-favorites-title">收藏與外部地圖</h3>
+        <details class="faq-item"><summary>「我的最愛」會喺其他裝置同步嗎？</summary><p>唔會。收藏只儲存在目前瀏覽器／裝置，唔會同步到其他裝置或帳戶；清除瀏覽器網站資料可能會移除收藏。</p></details>
+        <details class="faq-item"><summary>撳街景或導航連結會發生咩事？</summary><p>Google Maps 街景及 Google／Apple 導航會開啟相應外部地圖服務。只有你撳下相關連結時，該服務先會收到所選咪錶的座標。街景有冇影像視乎 Google Maps 覆蓋，App 唔會喺頁內預覽街景。</p></details>
+      </section>
+      <p class="faq-source-note">空位狀態及咪錶位置以運輸署公開資料為準。請同時留意頁面顯示的資料時間及現場咪錶資訊。</p>
+    </div>
+  </dialog>
   <main class="main">
     <section class="intro">
       <div><div class="eyebrow">HONG KONG · LIVE VACANCY</div><h1>附近咪錶，有冇位？</h1><p>查全港街邊咪錶空位，落車前睇一睇。</p></div>
@@ -67,6 +99,7 @@
       <div class="hero-meta"><div class="source-label">運輸署公開數據<br>空位狀態約每分鐘更新</div><div class="sync-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9A7 7 0 0 1 18 6l2 2M4 16l2 2a7 7 0 0 0 12.4-3"/></svg><span id="sync-label">正在載入車位資料…</span></div></div>
       <img class="hero-mascot" src="assets/meter-mascot-cutout.png" alt="" aria-hidden="true">
     </section>
+    <p role="note" style="margin:-4px 0 14px;padding:9px 12px;border:1px solid #d8e6e5;border-radius:11px;background:#f7fbfa;color:#526a73;font-size:11px;line-height:1.6">空位數只計運輸署最新回報狀態為 V（未佔用）的街邊咪錶位，並非預留或保證，到達前狀態可能改變。若顯示「過期快取／非即時」，數字按最近一次成功讀取的資料計算，可能未反映最新情況。</p>
     <div class="error-banner" id="error-banner" role="status"></div>
     <section class="toolbar" aria-label="搜尋及篩選">
       <label class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="搜尋街道、地區或咪錶編號" autocomplete="off" aria-label="搜尋咪錶清單（街道、地區或編號）" title="只在本機篩選已載入的咪錶清單；搜尋文字不會傳送"></label>
@@ -97,7 +130,7 @@
       </article>
     </section>
     <aside class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.8 19a1.2 1.2 0 0 0 1.05 1.8h16.3A1.2 1.2 0 0 0 21.2 19L12 3Z"/><path d="M12 9v4m0 3h.01"/></svg><div><strong>注意：</strong>本 App 並非政府官方程式，資料只供參考。咪錶感應狀態可能有延遲，車位到達前可能已被佔用；不包括停車場。收費時段及泊車規則以現場咪錶、交通標誌為準。Google Maps 街景連結會開啟外部服務，但不保證該位置有影像；導航會嘗試開啟 Google Maps 或 Apple 地圖，否則使用網頁版。</div></aside>
-    <footer class="source-footer"><div>GPS 定位座標只在此裝置用作尋找最近咪錶地區，不會儲存或傳送到地理編碼服務；地圖點選的目的地及其與咪錶的距離只在本機計算，不會送到外部服務。為顯示目前地圖，OpenStreetMap 會收到所需圖磚區域請求，可能反映你正在瀏覽的地區。只有你點擊外部地圖連結時，咪錶目的地座標才會交予 Google Maps 或 Apple 地圖。街景連結會在 Google Maps 開啟；是否有影像視乎其覆蓋，並非 App 內預覽。<br>內部原型 · 未公開發布</div><div class="source-links"><a href="https://data.gov.hk/tc-data/dataset/hk-td-msd_1-metered-parking-spaces-data" target="_blank" rel="noopener">運輸署咪錶空位數據</a><a href="https://www.td.gov.hk/tc/transport_in_hong_kong/parking/parking_meters/npm/index.html" target="_blank" rel="noopener">運輸署咪錶資訊</a><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">地圖資料 © OpenStreetMap</a></div></footer>
+    <footer class="source-footer"><div>GPS 定位座標只在此裝置用作尋找最近咪錶地區，不會儲存或傳送到地理編碼服務；地圖點選的目的地及其與咪錶的距離只在本機計算，不會送到外部服務。為顯示目前地圖，OpenStreetMap 會收到所需圖磚區域請求，可能反映你正在瀏覽的地區。只有你點擊外部地圖連結時，咪錶目的地座標才會交予 Google Maps 或 Apple 地圖。街景連結會在 Google Maps 開啟；是否有影像視乎其覆蓋，並非 App 內預覽。<br>公開測試版</div><div class="source-links"><a href="https://data.gov.hk/tc-data/dataset/hk-td-msd_1-metered-parking-spaces-data" target="_blank" rel="noopener">運輸署咪錶空位數據</a><a href="https://www.td.gov.hk/tc/transport_in_hong_kong/parking/parking_meters/npm/index.html" target="_blank" rel="noopener">運輸署咪錶資訊</a><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">地圖資料 © OpenStreetMap</a></div></footer>
   </main>
   <nav class="mobile-bottom-nav" aria-label="主要導覽">
     <button class="mobile-nav-button active" type="button" data-mobile-nav="map" aria-current="page"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15M15 6v15"/></svg></span><span class="mobile-nav-label">地圖</span></button>
@@ -115,8 +148,28 @@
   };
   const $ = (id) => document.getElementById(id);
   const FAVORITES_KEY='hk-metered-parking-favorites-v1';
+  const DATA_CACHE_DB='hk-metered-parking-data-cache-v1';
+  const DATA_CACHE_STORE='snapshots';
+  let dataCacheDbPromise=null;
+  function openDataCache(){
+    if(!('indexedDB' in window))return Promise.reject(new Error('瀏覽器不支援本機資料快取'));
+    if(!dataCacheDbPromise)dataCacheDbPromise=new Promise((resolve,reject)=>{
+      const request=indexedDB.open(DATA_CACHE_DB,1);
+      request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains(DATA_CACHE_STORE))db.createObjectStore(DATA_CACHE_STORE);};
+      request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error||new Error('無法開啟本機資料快取'));request.onblocked=()=>reject(new Error('本機資料快取暫時被其他分頁鎖定'));
+    });
+    return dataCacheDbPromise;
+  }
+  async function readDataCache(){
+    const db=await openDataCache();
+    return new Promise((resolve,reject)=>{const tx=db.transaction(DATA_CACHE_STORE,'readonly'),request=tx.objectStore(DATA_CACHE_STORE).get('latest');request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>reject(request.error||new Error('無法讀取本機資料快取'));});
+  }
+  async function writeDataCache(snapshot){
+    const db=await openDataCache();
+    return new Promise((resolve,reject)=>{const tx=db.transaction(DATA_CACHE_STORE,'readwrite');tx.objectStore(DATA_CACHE_STORE).put(snapshot,'latest');tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||new Error('無法保存本機資料快取'));tx.onabort=()=>reject(tx.error||new Error('保存本機資料快取已中止'));});
+  }
   function readFavorites(){try{const value=JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]');return new Set(Array.isArray(value)?value.map(String):[]);}catch(_){return new Set();}}
-  const state = { places: [], filtered: [], baseFiltered: [], filter: 'all', district: '', query: '', origin: null, map: null, markers: null, currentMarker: null, sortNearby: false, busy: false, lastUpdated: null, locationsLoaded: false, favorites: readFavorites(), listMode: 'roads', roadLimit: 100, roadGroups: [], nearestDistrict: null, autoDistrictApplied: false, manualDistrictSelected: false, shouldJumpDistrict: false, destination: null, destinationRadius: 500, destinationPickMode: false, destinationSearchActive: false, destinationPreviousFilters: null, destinationLayer: null };
+  const state = { places: [], filtered: [], baseFiltered: [], filter: 'all', district: '', query: '', origin: null, map: null, markers: null, currentMarker: null, sortNearby: false, busy: false, lastUpdated: null, lastSuccessfulFetchAt: null, dataMode: 'none', locationIndex: null, locationsLoaded: false, favorites: readFavorites(), listMode: 'roads', roadLimit: 100, roadGroups: [], nearestDistrict: null, autoDistrictApplied: false, manualDistrictSelected: false, shouldJumpDistrict: false, destination: null, destinationRadius: 500, destinationPickMode: false, destinationSearchActive: false, destinationPreviousFilters: null, destinationLayer: null };
 
   function escapeHtml(value) { return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
   function saveFavorites(){try{localStorage.setItem(FAVORITES_KEY,JSON.stringify([...state.favorites]));}catch(_){setError('瀏覽器未能保存我的最愛；請檢查裝置儲存空間或私隱設定。');}}
@@ -148,9 +201,23 @@
   function distanceMeters(a,b){return distanceKm(a,b)*1000;}
   function sortOrigin(){return state.destinationSearchActive&&state.destination?state.destination:state.origin;}
   function localTime(d){if(!d)return '—';return new Intl.DateTimeFormat('zh-HK',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'Asia/Hong_Kong'}).format(d);}
+  function fullTimestamp(d){if(!d)return '—';const p=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Hong_Kong',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(d).map(x=>[x.type,x.value]));return `${p.day}/${p.month}/${p.year} ${p.hour}:${p.minute}`;}
   function setError(message){const box=$('error-banner');box.innerHTML=escapeHtml(message)+' <button type="button" id="retry-inline">重新載入</button>';box.classList.add('show');$('retry-inline').onclick=()=>loadAll(true);}
   function clearError(){$('error-banner').classList.remove('show');}
+  function friendlyFetchError(err){const message=err?.message||'';return /failed to fetch|networkerror|load failed/i.test(message)?'網絡連線失敗，未能取得運輸署最新資料。':message||'未能連接運輸署公開數據。';}
   function setDataBadge(ok, text){$('live-pill').classList.toggle('stale',!ok);$('live-pill-text').textContent=text;}
+  async function restoreDataCache(){
+    try{
+      const snapshot=await readDataCache();
+      if(!snapshot||snapshot.version!==1||!Array.isArray(snapshot.places)||!snapshot.places.length)return false;
+      const savedAt=new Date(snapshot.savedAt),sourceAt=new Date(snapshot.sourceUpdatedAt||snapshot.savedAt);
+      if(!Number.isFinite(savedAt.getTime())||!Number.isFinite(sourceAt.getTime()))return false;
+      if(snapshot.places.some(p=>!p||p.id==null||!(p.lat===null||Number.isFinite(p.lat))||!(p.lon===null||Number.isFinite(p.lon))||typeof p.status!=='string'))return false;
+      state.places=snapshot.places;state.lastSuccessfulFetchAt=savedAt;state.lastUpdated=sourceAt;state.dataMode='cache';
+      refreshDistrictOptions();$('map-loading').classList.add('hidden');applyFilters();updateSyncText();
+      return true;
+    }catch(_){return false;}
+  }
 
   function initMap(){
     if(!window.L){$('map-loading').innerHTML='<div>地圖元件未能載入。<br>你仍可使用下方車位清單。</div>';return;}
@@ -346,9 +413,13 @@
   }
   function updateSyncText(){
     if(!state.lastUpdated)return;
+    if(state.dataMode==='cache'){
+      $('sync-label').textContent=`非即時快取 · ${fullTimestamp(state.lastSuccessfulFetchAt||state.lastUpdated)}`;
+      setDataBadge(false,'過期快取');return;
+    }
     const age=Math.max(0,Math.round((Date.now()-state.lastUpdated)/1000));
-    $('sync-label').textContent=age<60?`剛剛更新 · ${localTime(state.lastUpdated)}`:`${Math.floor(age/60)} 分鐘前更新 · ${localTime(state.lastUpdated)}`;
-    setDataBadge(age<180,age<180?'即時資料':'資料可能較舊');
+    $('sync-label').textContent=`最近成功更新 ${fullTimestamp(state.lastSuccessfulFetchAt||state.lastUpdated)}`;
+    setDataBadge(age<180,age<180?'即時資料':'官方資料可能較舊');
   }
   async function fetchCSV(url){const response=await fetch(url,{cache:'no-store',mode:'cors'});if(!response.ok)throw new Error(`官方資料連線失敗（${response.status}）`);const text=await response.text();return {text,modified:response.headers.get('Last-Modified')};}
   async function loadAll(manual=false){
@@ -356,22 +427,30 @@
     try{
       if(!state.locationsLoaded){
         const loc=await fetchCSV(URLS.locations);const locRecords=recordsFromCSV(loc.text,'ParkingSpaceId');
-        state.locationIndex=new Map(locRecords.filter(r=>r.ParkingSpaceId).map(r=>[r.ParkingSpaceId,r]));state.locationsLoaded=true;
-        if(!state.locationIndex.size)throw new Error('未能讀取咪錶位置資料');
+        const locationIndex=new Map(locRecords.filter(r=>r.ParkingSpaceId).map(r=>[r.ParkingSpaceId,r]));
+        if(!locationIndex.size)throw new Error('未能讀取咪錶位置資料');
+        state.locationIndex=locationIndex;state.locationsLoaded=true;
       }
       const occ=await fetchCSV(URLS.occupancy);const records=recordsFromCSV(occ.text,'OccupancyStatus');
       const occupancy=new Map(records.filter(r=>r.ParkingSpaceId).map(r=>[r.ParkingSpaceId,r]));
-      state.places=[];
-      for(const [id,r] of state.locationIndex){const s=occupancy.get(id);const lat=Number(r.Latitude),lon=Number(r.Longitude);state.places.push({id,lat:Number.isFinite(lat)?lat:null,lon:Number.isFinite(lon)?lon:null,region_tc:r.Region_tc,district_tc:r.District_tc,subdistrict_tc:r.SubDistrict_tc,street_tc:r.Street_tc,section_tc:r.SectionOfStreet_tc,street:r.Street,district:r.District,status:s?.OccupancyStatus||'?',changed:s?.OccupancyDateChanged||''});}
-      if(!state.places.length)throw new Error('官方資料暫時沒有車位記錄');
-      state.lastUpdated=occ.modified?new Date(occ.modified):new Date();
-      refreshDistrictOptions();clearError();setDataBadge(true,'即時資料');
-      $('sync-label').textContent=`剛剛更新 · ${localTime(state.lastUpdated)}`;$('map-loading').classList.add('hidden');
+      if(!occupancy.size)throw new Error('官方空位狀態資料暫時沒有記錄');
+      const places=[];
+      for(const [id,r] of state.locationIndex){const s=occupancy.get(id);const lat=Number(r.Latitude),lon=Number(r.Longitude);places.push({id,lat:Number.isFinite(lat)?lat:null,lon:Number.isFinite(lon)?lon:null,region_tc:r.Region_tc,district_tc:r.District_tc,subdistrict_tc:r.SubDistrict_tc,street_tc:r.Street_tc,section_tc:r.SectionOfStreet_tc,street:r.Street,district:r.District,status:s?.OccupancyStatus||'?',changed:s?.OccupancyDateChanged||''});}
+      if(!places.length)throw new Error('官方資料暫時沒有車位記錄');
+      const fetchedAt=new Date(),sourceAt=occ.modified?new Date(occ.modified):fetchedAt;
+      state.places=places;state.lastSuccessfulFetchAt=fetchedAt;state.lastUpdated=Number.isFinite(sourceAt.getTime())?sourceAt:fetchedAt;state.dataMode='live';
+      refreshDistrictOptions();clearError();$('map-loading').classList.add('hidden');updateSyncText();
       applyFilters();
+      writeDataCache({version:1,savedAt:fetchedAt.toISOString(),sourceUpdatedAt:state.lastUpdated.toISOString(),places}).catch(()=>{});
     }catch(err){
-      setDataBadge(false,'未能更新');
-      if(!state.places.length){$('vacancy-number').innerHTML='—<small>個</small>';if(state.map)$('map-loading').innerHTML='<div>未能載入官方資料。<br>請檢查網絡，或稍後再試。</div>';}
-      setError(err?.message||'未能連接運輸署公開數據。');
+      if(state.places.length){
+        state.dataMode='cache';setDataBadge(false,'過期快取');updateSyncText();
+        setError(`官方資料更新失敗，現正使用本機快取（非即時）。最近成功讀取：${fullTimestamp(state.lastSuccessfulFetchAt||state.lastUpdated)}。${friendlyFetchError(err)}`);
+      }else{
+        state.dataMode='none';setDataBadge(false,'未能更新');$('sync-label').textContent='未有可用資料';
+        $('vacancy-number').innerHTML='—<small>個</small>';if(state.map)$('map-loading').innerHTML='<div>未能載入官方資料。<br>請檢查網絡，或稍後再試。</div>';
+        setError(friendlyFetchError(err));
+      }
     }finally{state.busy=false;$('refresh-button').disabled=false;}
   }
   function selectFilter(button){state.filter=button.dataset.filter;document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b===button));applyFilters();}
@@ -417,7 +496,16 @@
     window.addEventListener('resize',()=>{if(state.map)state.map.invalidateSize();if(window.innerWidth<=700&&!$('map-panel').classList.contains('mobile-hidden')&&!$('list-panel').classList.contains('mobile-hidden'))$('list-panel').classList.add('mobile-hidden');syncMobileNav();});
     syncMobileNav();
   }
-  initMap();bind();updateFavoriteCount();loadAll(false);requestLocation(false);setInterval(()=>{if(state.locationsLoaded)loadAll(false);},60000);setInterval(updateSyncText,15000);
+  async function start(){
+    await restoreDataCache();
+    loadAll(false);requestLocation(false);
+    setInterval(()=>{if(state.locationsLoaded)loadAll(false);},60000);setInterval(updateSyncText,15000);
+  }
+  initMap();bind();updateFavoriteCount();start();
+  const faqDialog=$('faq-dialog');
+  $('faq-open-button').addEventListener('click',()=>{ $('faq-dialog-body').scrollTop=0;faqDialog.showModal();$('faq-close-button').focus(); });
+  $('faq-close-button').addEventListener('click',()=>faqDialog.close());
+  faqDialog.addEventListener('click',event=>{if(event.target===faqDialog)faqDialog.close();});
 })();
 </script>
 </body>
