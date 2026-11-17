@@ -150,6 +150,7 @@
   const FAVORITES_KEY='hk-metered-parking-favorites-v1';
   const DATA_CACHE_DB='hk-metered-parking-data-cache-v1';
   const DATA_CACHE_STORE='snapshots';
+  const DATA_CACHE_VERSION=2;
   let dataCacheDbPromise=null;
   function openDataCache(){
     if(!('indexedDB' in window))return Promise.reject(new Error('瀏覽器不支援本機資料快取'));
@@ -167,6 +168,10 @@
   async function writeDataCache(snapshot){
     const db=await openDataCache();
     return new Promise((resolve,reject)=>{const tx=db.transaction(DATA_CACHE_STORE,'readwrite');tx.objectStore(DATA_CACHE_STORE).put(snapshot,'latest');tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||new Error('無法保存本機資料快取'));tx.onabort=()=>reject(tx.error||new Error('保存本機資料快取已中止'));});
+  }
+  async function clearDataCache(){
+    const db=await openDataCache();
+    return new Promise((resolve,reject)=>{const tx=db.transaction(DATA_CACHE_STORE,'readwrite');tx.objectStore(DATA_CACHE_STORE).delete('latest');tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||new Error('無法清除舊版本機快取'));tx.onabort=()=>reject(tx.error||new Error('清除舊版本機快取已中止'));});
   }
   function readFavorites(){try{const value=JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]');return new Set(Array.isArray(value)?value.map(String):[]);}catch(_){return new Set();}}
   const state = { places: [], filtered: [], baseFiltered: [], filter: 'all', district: '', query: '', origin: null, map: null, markers: null, currentMarker: null, sortNearby: false, busy: false, lastUpdated: null, lastSuccessfulFetchAt: null, dataMode: 'none', locationIndex: null, locationsLoaded: false, favorites: readFavorites(), listMode: 'roads', roadLimit: 100, roadGroups: [], nearestDistrict: null, autoDistrictApplied: false, manualDistrictSelected: false, shouldJumpDistrict: false, destination: null, destinationRadius: 500, destinationPickMode: false, destinationSearchActive: false, destinationPreviousFilters: null, destinationLayer: null };
@@ -195,6 +200,9 @@
     return rows.slice(headerAt+1).map(row=>Object.fromEntries(headers.map((h,i)=>[h,(row[i]??'').trim()])));
   }
   function clean(s){return String(s||'').normalize('NFKC').toLocaleLowerCase('zh-HK').trim();}
+  const INTERNAL_TEST_MARKERS=new Set(['internal test','內部測試','内部测试']);
+  const INTERNAL_TEST_FIELDS=['District','District_tc','District_sc','SubDistrict','SubDistrict_tc','SubDistrict_sc','Street','Street_tc','Street_sc','SectionOfStreet','SectionOfStreet_tc','SectionOfStreet_sc','district','district_tc','district_sc','subdistrict','subdistrict_tc','subdistrict_sc','street','street_tc','street_sc','section','section_tc','section_sc','sectionOfStreet','sectionOfStreet_tc','sectionOfStreet_sc'];
+  function isInternalTestRecord(record){return INTERNAL_TEST_FIELDS.some(field=>INTERNAL_TEST_MARKERS.has(clean(record?.[field])));}
   function placeStatus(place){return place.status==='V'?'V':place.status==='O'?'O':'?';}
   function isVacant(p){return p.status==='V';}
   function distanceKm(a,b){const r=x=>x*Math.PI/180, dLat=r(b.lat-a.lat),dLon=r(b.lon-a.lon);const x=Math.sin(dLat/2)**2+Math.cos(r(a.lat))*Math.cos(r(b.lat))*Math.sin(dLon/2)**2;return 6371*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));}
@@ -209,12 +217,17 @@
   async function restoreDataCache(){
     try{
       const snapshot=await readDataCache();
-      if(!snapshot||snapshot.version!==1||!Array.isArray(snapshot.places)||!snapshot.places.length)return false;
+      if(!snapshot)return false;
+      if(snapshot.version!==DATA_CACHE_VERSION){await clearDataCache();return false;}
+      if(!Array.isArray(snapshot.places)||!snapshot.places.length)return false;
       const savedAt=new Date(snapshot.savedAt),sourceAt=new Date(snapshot.sourceUpdatedAt||snapshot.savedAt);
       if(!Number.isFinite(savedAt.getTime())||!Number.isFinite(sourceAt.getTime()))return false;
       if(snapshot.places.some(p=>!p||p.id==null||!(p.lat===null||Number.isFinite(p.lat))||!(p.lon===null||Number.isFinite(p.lon))||typeof p.status!=='string'))return false;
-      state.places=snapshot.places;state.lastSuccessfulFetchAt=savedAt;state.lastUpdated=sourceAt;state.dataMode='cache';
+      const places=snapshot.places.filter(p=>!isInternalTestRecord(p));
+      if(!places.length)return false;
+      state.places=places;state.lastSuccessfulFetchAt=savedAt;state.lastUpdated=sourceAt;state.dataMode='cache';
       refreshDistrictOptions();$('map-loading').classList.add('hidden');applyFilters();updateSyncText();
+      if(places.length!==snapshot.places.length)writeDataCache({...snapshot,places}).catch(()=>{});
       return true;
     }catch(_){return false;}
   }
@@ -427,7 +440,7 @@
     try{
       if(!state.locationsLoaded){
         const loc=await fetchCSV(URLS.locations);const locRecords=recordsFromCSV(loc.text,'ParkingSpaceId');
-        const locationIndex=new Map(locRecords.filter(r=>r.ParkingSpaceId).map(r=>[r.ParkingSpaceId,r]));
+        const locationIndex=new Map(locRecords.filter(r=>r.ParkingSpaceId&&!isInternalTestRecord(r)).map(r=>[r.ParkingSpaceId,r]));
         if(!locationIndex.size)throw new Error('未能讀取咪錶位置資料');
         state.locationIndex=locationIndex;state.locationsLoaded=true;
       }
@@ -441,7 +454,7 @@
       state.places=places;state.lastSuccessfulFetchAt=fetchedAt;state.lastUpdated=Number.isFinite(sourceAt.getTime())?sourceAt:fetchedAt;state.dataMode='live';
       refreshDistrictOptions();clearError();$('map-loading').classList.add('hidden');updateSyncText();
       applyFilters();
-      writeDataCache({version:1,savedAt:fetchedAt.toISOString(),sourceUpdatedAt:state.lastUpdated.toISOString(),places}).catch(()=>{});
+      writeDataCache({version:DATA_CACHE_VERSION,savedAt:fetchedAt.toISOString(),sourceUpdatedAt:state.lastUpdated.toISOString(),places}).catch(()=>{});
     }catch(err){
       if(state.places.length){
         state.dataMode='cache';setDataBadge(false,'過期快取');updateSyncText();
